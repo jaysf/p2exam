@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <button onclick="changeImage(1)" onblur="blurHandler()">Image 1</button>
+    <button onclick="changeImage(2)" onblur="blurHandler()">Image 2</button>
+    <button onclick="changeImage(3)" onblur="blurHandler()">Image 3</button>
+    <br /><br />
+    <img id="image" src="" />
+
+    <button onclick="playVideo(1)" onblur="blurHandler()">Video 1</button>
+    <button onclick="playVideo(2)" onblur="blurHandler()">Video 2</button>
+    <button onclick="playVideo(3)" onblur="blurHandler()">Video 3</button>
+    <br /><br />
+    <video id="video" controls>
+      <source id="videoSource" src="" type="video/mp4" />
+    </video>
+
+    <script>
+      var image = document.querySelector("#image");
+      var video = document.querySelector("#video");
+      var videoSource = document.querySelector("#videoSource");
+
+      function changeImage(imageNumber) {
+        if (imageNumber === 1) {
+          image.src = "js.png";
+        } else if (imageNumber === 2) {
+          image.src = "ja.png";
+        } else if (imageNumber === 3) {
+          image.src = "jk.png";
+        }
+      }
+
+      function playVideo(videoNumber) {
+        if (videoNumber === 1) {
+          videoSource.src = "sun.mp4";
+        } else if (videoNumber === 2) {
+          videoSource.src = "nature.mp4";
+        } else if (videoNumber === 3) {
+          videoSource.src = "s.mp4";
+        }
+        video.load();
+        video.play();
+      }
+
+      function blurHandler() {
+        // Clear the image src
+        image.src = "";
+
+        // Pause the video
+        video.pause();
+      }
+    </script>
+  </body>
+</html>
